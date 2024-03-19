@@ -8,7 +8,6 @@ func main() {
 	name := []string{"cook", "save", "taste", "aves", "vase", "state", "map"}
 	result := Anagrams(name)
 	fmt.Println(result)
-	fmt.Println(result)
 	for _, group := range result {
 		fmt.Println(group)
 	}
@@ -28,18 +27,21 @@ func Anagrams(name []string) [][]string {
 		//merubah string angka menjadi string kembali
 		sortedstring := string(sortRune)
 		//memasukan string dengan runes yang sama kedalam anagramMap
-		//setiap terjadi looping jika ada kata dengan sorted rune yang sama maka kata tersebut akan ditambahkan
+		//setiap terjadi looping jika ada kata dengan sorted rune yang sama maka kata tersebut akan ditambahkan kedalam map
 		anagramMap[sortedstring] = append(anagramMap[sortedstring], str)
 
 	}
+	fmt.Println(anagramMap)
 	//array 2d
-	//conversi anagram dalam bentuk mep menjadi bentuk array 2d yang lebih sederhana
+	//conversi anagram dalam bentuk mep menjadi bentuk array 2d yang lebih sederhana dengan menginput satu persatu menggunakan loop
 	result := make([][]string, 0, len(anagramMap))
 	for _, groupedname := range anagramMap {
 		result = append(result, groupedname)
 	}
 	return result
 }
+
+// func untuk mengurutkan angka di dalam rune
 func sort(numbers []int32) []int32 {
 	for i := 0; i < len(numbers)-1; i++ {
 		for j := 0; j < len(numbers)-i-1; j++ {
